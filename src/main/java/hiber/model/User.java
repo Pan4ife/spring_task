@@ -20,6 +20,7 @@ public class User {
    private String email;
 
    @OneToOne (cascade = CascadeType.ALL)
+   @JoinColumn(name = "car_id")
    private Car car;
 
    public User() {}
@@ -29,6 +30,24 @@ public class User {
       this.firstName = firstName;
       this.lastName = lastName;
       this.email = email;
+      this.car = car;
+   }
+
+   @Override
+   public String toString() {
+      return "User{" +
+              "firstName='" + firstName + '\'' +
+              ", lastName='" + lastName + '\'' +
+              ", email='" + email + '\'' +
+              ", car=" + car +
+              '}';
+   }
+
+   public Car getCar() {
+      return car;
+   }
+
+   public void setCar(Car car) {
       this.car = car;
    }
 
